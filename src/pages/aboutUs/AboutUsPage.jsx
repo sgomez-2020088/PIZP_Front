@@ -13,7 +13,7 @@ export const AboutUsPage = () => {
                     <Image boxSize='3rem' src={Icon} alt='Icon PIZP'/>
                 </Box>
                 <ButtonGroup size='md' spacing='4'>
-                    <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}}>Iniciar Sesión</Button>
+                    <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/login')}}>Iniciar Sesión</Button>
                     <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/register')}}>Registrar</Button>
                 </ButtonGroup>
             </Navbar>
