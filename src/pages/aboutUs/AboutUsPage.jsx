@@ -6,6 +6,14 @@ import { useNavigate } from 'react-router'
 
 export const AboutUsPage = () => {
     let navigate = useNavigate()
+
+    const token = localStorage.getItem('token')
+
+     const handleClickLogOut = ()=>{
+        navigate('/')
+        localStorage.removeItem('DPI')
+        localStorage.removeItem('token')
+      }
     return (
         <>
             <Navbar>
@@ -13,8 +21,11 @@ export const AboutUsPage = () => {
                     <Image boxSize='3rem' src={Icon} alt='Icon PIZP'/>
                 </Box>
                 <ButtonGroup size='md' spacing='4'>
-                    <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/login')}}>Iniciar Sesión</Button>
-                    <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/register')}}>Registrar</Button>
+                    {token?(''):(<Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/login')}}>Iniciar Sesión</Button>)}
+                    {token?(''):(<Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/register')}}>Registrar</Button>)}
+                    {token?( <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/reports')}}>Reportes</Button>):('')}
+                    {token?( <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/reports')}}>Reportar</Button>):('')}
+                    {token?( <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={handleClickLogOut}>Cerrar Sesión</Button>):('')}
                 </ButtonGroup>
             </Navbar>
         <div>AboutUsPage</div>
