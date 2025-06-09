@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useRegister } from '../../shared/hooks/useRegister';
 import { Box, Button, Checkbox, FormControl, FormErrorMessage, FormLabel, Icon, Input, InputGroup, InputLeftAddon, InputRightElement, Text } from '@chakra-ui/react';
 import { WarningIcon, WarningTwoIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 export const Register = () => {
     const [name, setName] = useState('');
@@ -97,7 +98,6 @@ export const Register = () => {
                     <Box  marginTop='5%' marginBottom='5%'>  
                         <Text fontSize='3xl'  color='#DE4B4B' as='b'> REGISTRATE EN PIZP</Text>
                     </Box>
-
                     <FormLabel fontSize='1.2rem' size='lg'color='#DE4B4B'width='39rem' textAlign="left">Nombres</FormLabel>
                     <Input id='1'size='md' value={name}   width='40rem' onChange={handleChangeName} mb='3'/>
                     <span style={{color:'#DE4B4B'}} > {validationErrors.name && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.name}</span>
