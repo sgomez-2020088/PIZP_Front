@@ -4,6 +4,7 @@ import Icon from '../../assets/PIZPIcon.png'
 import { Box, Button, ButtonGroup, Image } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import { removeItem } from 'framer-motion'
+import { Reports } from '../../components/Reports/Reports'
 
 export const ReportsPage = () => {
   const navigate = useNavigate()
@@ -26,6 +27,7 @@ export const ReportsPage = () => {
             <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={handleClickLogOut}>Cerrar Sesión</Button>
           </ButtonGroup>
         </Navbar>
+        <Reports/>
       </>
   )
 }
