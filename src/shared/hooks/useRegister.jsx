@@ -46,7 +46,7 @@ export const useRegister = () => {
                     primary: '#DE4B4B',
                     secondary: '#F6C388',
                 },
-})
+    })
     }
     return {
         register,
