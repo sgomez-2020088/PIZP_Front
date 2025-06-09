@@ -8,6 +8,7 @@ const apiClient = axios.create(
     }
 )
 
+
 apiClient.interceptors.request.use(
     (config)=>{
         const token = localStorage.getItem('token')
@@ -18,6 +19,8 @@ apiClient.interceptors.request.use(
     }
     
 )
+
+
 
 export const registerRequest = async(user)=>{
     try {
@@ -33,6 +36,17 @@ export const registerRequest = async(user)=>{
 export const loginRequest = async(user) =>{
     try {
         return await apiClient.post('/v1/auth/login',user)
+    } catch (err) {
+        return{
+            error:true,
+            err
+        }
+    }
+}
+
+export const addReportRequest = async(report) =>{
+    try {
+        return await apiClient.post('/v1/report/add', report)
     } catch (err) {
         return{
             error:true,
