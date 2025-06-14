@@ -4,11 +4,13 @@ import toast from 'react-hot-toast'
 
 export const useAddReport = () => {
 
-    const addReport = async(typeCrime, address, description,user)=>{
+    const addReport = async(typeCrime, address,lat,lng, description,user)=>{
         
         const report={
             typeCrime,
             address,
+            lat,
+            lng,
             description,
             user
         }
@@ -22,7 +24,7 @@ export const useAddReport = () => {
             )
         }
 
-        cons
+       
         return toast.success('Reporte creado')
     }
   return {
