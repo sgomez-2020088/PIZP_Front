@@ -59,7 +59,7 @@ export const Map = ({ center, zoom }) => {
           <Marker
             lat={markerPosition.lat}
             lng={markerPosition.lng}
-            text={isHovered ? '¡Hola!' : ''}  // Mostrar texto cuando se pasa el mouse
+            text={isHovered ? '¡Hola!' : ''}  
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           />
