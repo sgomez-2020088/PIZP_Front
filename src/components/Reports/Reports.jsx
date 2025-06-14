@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Map } from '../Map/Map';
 import { Box } from '@chakra-ui/react';
+import { Maps } from '../Map/Maps';
+
 
 export const Reports = () => {
-        const defaultCenter = { lat: 14.6349, lng: -90.5069 };  
-        const defaultZoom = 14;
+        const [marker, setMarkerPosition]=  useState(null)
+
+
+        const handleClickChangeMarker = (e)=>{
+        setMarkerPosition(e.detail.latLng)
+        console.log(e.detail.latLng)
+       
+    }
   return (
     <>
     <Box 
@@ -16,11 +24,7 @@ export const Reports = () => {
     height="34rem"  
     style={{ margin: '5rem auto' }} 
 >
-  <Map 
-    center={defaultCenter} 
-    zoom={defaultZoom} 
-    
-  />
+  <Maps marker={marker} handleClickChangeMarker={handleClickChangeMarker}/>
 </Box>
     </>
   )
