@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAddReport } from '../../shared/hooks/useAddReport'
 import { Box, Button, FormControl, FormLabel, Input, Select, Text, Textarea } from '@chakra-ui/react'
+import { Maps } from '../Map/Maps'
 
 export const Report = () => {
 
@@ -9,6 +10,9 @@ export const Report = () => {
     const [address, setAddress] = useState('')
     const [description, setDescription] = useState('')
     const [user, setUser] = useState(DPI)
+    const [marker, setMarkerPosition]=  useState(null)
+    const [lat, setLat] = useState(null)
+    const [lng, setLng] = useState(null)
 
     const [formValidation, setFormValidation] = useState({
         typeCrime: undefined,
@@ -19,9 +23,19 @@ export const Report = () => {
     const {addReport} = useAddReport()
 
 
+     const handleClickChangeMarker = (e)=>{
+        setMarkerPosition(e.detail.latLng)
+
+        setLat(e.detail.latLng.lat)
+        setLng(e.detail.latLng.lng)
+        
+    }
+
+    
+
     const handleSubmit = (e)=>{
         e.preventDefault()
-        addReport(typeCrime, address,description,user)
+        addReport(typeCrime, address,lat,lng,description,user)
     }
 
     const handleChangeTypeCrime = (e)=>{
@@ -39,7 +53,7 @@ export const Report = () => {
         setDescription(value)
     }
 
-console.log(DPI)
+
   return (
     <>
     <Box >
@@ -68,6 +82,17 @@ console.log(DPI)
                     <Textarea placeholder='Escribe lo sucedido aquí' onChange={handleChangeDescription}/>
                 </FormControl>
                 <Button type='submit'> Enviar</Button>
+
+                <Box display="flex" 
+    alignItems="center" 
+    justifyContent="center" 
+    flexDirection="column" 
+    width="70rem" 
+    height="34rem"  
+    style={{ margin: '5rem auto' }} >
+                    <Maps marker={marker} handleClickChangeMarker={handleClickChangeMarker}/>
+                </Box>
+               
             </form>
         </Box>
     </Box>
