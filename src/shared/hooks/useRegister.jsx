@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { registerRequest } from '../../services/api'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 export const useRegister = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+
+    let navigate =useNavigate()
     const register = async(name,surname,phone,DPI,email,password )=>{
         setLoading(true)
         const user={
@@ -29,14 +32,16 @@ export const useRegister = () => {
                 }
             }
             return toast.error(
-                response?.err?.response?.data?.msg ||
-                response?.err?.data?.msg ||
+                response?.err?.response?.data?.message ||
+                response?.err?.data?.message ||
                 'Error general al intentar registrase'
             )
         }
         setError(false)
-        console.log(response?.err?.response?.data?.msg)
-        return toast.success('Usuario registrado correctamente',{
+        
+        localStorage.setItem('DPIVerifycationCode',DPI)
+        navigate('/verify')
+        return toast.success('Codigo de verificación enviado',{
                 style: {
                     border: '1px solid #DE4B4B',
                     padding: '16px',
@@ -46,7 +51,7 @@ export const useRegister = () => {
                     primary: '#DE4B4B',
                     secondary: '#F6C388',
                 },
-    })
+        })
     }
     return {
         register,
