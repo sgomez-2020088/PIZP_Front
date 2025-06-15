@@ -65,7 +65,7 @@ export const Login = () => {
                         <span style={{color:'#DE4B4B'}} > {formValidation.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.password}</span>
                     </FormControl>
 
-                    <Button  disabled={!isDisabled} isLoading={loading?true:false} width='40rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
+                    <Button  disabled={!isDisabled}  width='40rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
                 </form>
             </Box>
         </Box>
