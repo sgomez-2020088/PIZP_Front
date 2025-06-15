@@ -76,3 +76,14 @@ export const resendCodeRequest = async(resendCode)=>{
         }
     }
 }
+
+export const getReportsRequest = async()=>{
+    try {
+        return await apiClient.get('/v1/report/get')
+    } catch (err) {
+        return{
+            error:true,
+            err
+        }
+    }
+}
