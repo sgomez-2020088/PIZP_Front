@@ -5,6 +5,7 @@ import { RegisterPage } from "./pages/Register/RegisterPage";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { ReportsPage } from "./pages/Reports/ReportsPage";
 import { ReportPage } from "./pages/Report/ReportPage";
+import { VerifyCodePage } from "./pages/VerifyCode/VerifyCodePage";
 
 export const routes = [
     {path:'/', element:<AboutUsPage/>},
@@ -12,5 +13,6 @@ export const routes = [
     {path:'/login', element:<LoginPage/>},
     {path:'/reports', element:<ReportsPage/>},
     {path:'/report', element:<ReportPage/>},
+    {path:'/verify', element:<VerifyCodePage/>},
     {path:'*', element:<NotFoudPage/>}
 ]
