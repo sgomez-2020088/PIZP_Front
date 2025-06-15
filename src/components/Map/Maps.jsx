@@ -2,7 +2,7 @@ import { Text } from '@chakra-ui/react'
 import { AdvancedMarker, APIProvider, InfoWindow, Map } from '@vis.gl/react-google-maps'
 import React, { useState } from 'react'
 
-export const Maps = ({marker, handleClickChangeMarker}) => {
+export const Maps = ({marker, handleClickChangeMarker, description,id,children}) => {
 
     
     const [open, setOpen] = useState(false)
@@ -17,11 +17,13 @@ export const Maps = ({marker, handleClickChangeMarker}) => {
   return (
     <APIProvider apiKey='AIzaSyAhoC1Gjnmo2AYoJ8gFN5u_Lwnvumbida8'>
         <Map defaultCenter={position} defaultZoom={11} mapId='d83b2bfcb134e57b5d056f3b' onClick={handleClickChangeMarker}>
-            <AdvancedMarker position={marker} onClick={handleClickBox}></AdvancedMarker>
-            {open&&(<InfoWindow position={marker} onCloseClick={handleClickBox}>
-                <Text>Halo</Text>
-            </InfoWindow>)}
-            
+            {children}
+
+            {marker &&(
+                <>
+                <AdvancedMarker key={id} position={marker} onClick={handleClickBox}></AdvancedMarker>
+                </>
+            )}
         </Map>
     </APIProvider>
   )
