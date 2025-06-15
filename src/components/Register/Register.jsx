@@ -134,7 +134,7 @@ export const Register = () => {
                     <span style={{color:'#DE4B4B'}} > {validationErrors.confirmPassword && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.confirmPassword}</span>
                     <br/>
                     <Checkbox  colorScheme='red' color='#DE4B4B' onChange={handleClick} mb='3'>Ver contraseña</Checkbox>
-                    <Button disabled={!disabled}width='40rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Enviar</Button>
+                    <Button disabled={!disabled} isLoading={loading?true:false}width='40rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Enviar</Button>
                 </FormControl>
                 </form>
             </Box>
