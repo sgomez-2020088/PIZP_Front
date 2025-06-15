@@ -84,12 +84,12 @@ export const Report = () => {
                 <Button type='submit'> Enviar</Button>
 
                 <Box display="flex" 
-    alignItems="center" 
-    justifyContent="center" 
-    flexDirection="column" 
-    width="70rem" 
-    height="34rem"  
-    style={{ margin: '5rem auto' }} >
+                alignItems="center" 
+                justifyContent="center" 
+                flexDirection="column" 
+                width="70rem" 
+                height="34rem"  
+                style={{ margin: '5rem auto' }} >
                     <Maps marker={marker} handleClickChangeMarker={handleClickChangeMarker}/>
                 </Box>
                
