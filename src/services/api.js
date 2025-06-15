@@ -54,3 +54,25 @@ export const addReportRequest = async(report) =>{
         }
     }
 }
+
+export const verifyCodeRequest = async(code) =>{
+    try {
+        return await apiClient.post('/v1/auth/verifyCode', code)
+    } catch (err) {
+        return{
+            error:true,
+            err
+        }
+    }
+}
+
+export const resendCodeRequest = async(resendCode)=>{
+    try {
+        return await apiClient.post('/v1/auth/resendCode', resendCode)
+    } catch (err) {
+        return{
+            error:true,
+            err
+        }
+    }
+}
