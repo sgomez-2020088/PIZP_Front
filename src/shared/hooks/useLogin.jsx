@@ -42,7 +42,7 @@ export const useLogin = () => {
         localStorage.setItem('DPI',response.data.DPI)
 
         localStorage.setItem('token',response.data.token)
-        //navigate('/reports')
+        navigate('/reports')
         return toast.success('Inicio de sesión exitoso',{
                 style: {
                     border: '1px solid #DE4B4B',
