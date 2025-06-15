@@ -25,7 +25,17 @@ export const useAddReport = () => {
         }
 
        
-        return toast.success('Reporte creado')
+        return toast.success('Reporte creado',{
+                style: {
+                    border: '1px solid #DE4B4B',
+                    padding: '16px',
+                    color: '#DE4B4B',
+                },
+                iconTheme: {
+                    primary: '#DE4B4B',
+                    secondary: '#F6C388',
+                },
+        })
     }
   return {
     addReport
