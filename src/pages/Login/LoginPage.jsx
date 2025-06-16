@@ -6,7 +6,7 @@ import { Box, Button, ButtonGroup, Image } from '@chakra-ui/react'
 import { Login } from '../../components/Login/Login'
 
 export const LoginPage = () => {
-    const navigate = useNavigate()
+    
     return (
         <>
             
