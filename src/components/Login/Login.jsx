@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import Fondo from '../../assets/FondoPIZP.png'
 import { useLogin } from '../../shared/hooks/useLogin'
-import { Box, Button, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
-import { ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
+import { Box, Button, FormControl, FormErrorMessage, FormLabel, Icon, Image, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
+import { LockIcon, ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
+import { FaBeer, FaIdCard } from "react-icons/fa";
 
 export const Login = () => {
 
@@ -40,34 +42,44 @@ export const Login = () => {
         setPassword(value)
     }
 
-  return (
-        <Box  display='flex' alignItems='center' justifyContent='center' flexDirection='column' width='100vw' height='90vh' >
-            <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' bg='black' width='55rem' height='30rem' borderRadius='2.5rem'>
-                <form onSubmit={handleSubmit}>
-                     <Box  marginBottom='0.5rem' marginLeft='12rem' >  
-                        <Text fontSize='4xl'  color='#DE4B4B' as='b'>Iniciar Sesión</Text>
-                    </Box>
-                    
-                    <FormControl marginTop='2rem' >
-                        <FormLabel  fontSize='1.2rem' color='#DE4B4B' >DPI</FormLabel>
-                        <Input size='md' type='text' bg='white' value={DPI} onChange={handleChangeDPI}/>
-                        <span style={{color:'#DE4B4B'}} > {formValidation.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.DPI}</span>
-                    </FormControl>
+    return (
+            <Box  display='flex' alignItems='center' justifyContent='center' flexDirection='row' width='100vw' height='90vh' >
+                <Box  >
+                    <Image src={Fondo} alt='Fondo PIZP' size boxSize='30rem' borderLeftRadius='2.5rem'/>
+                </Box>
+                <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' border="2px solid #DE4B4B"  width='30rem' height='30rem' borderEndRadius='2.5rem'>
+                    <form onSubmit={handleSubmit}>
+                        <Box  marginBottom='0.5rem' marginLeft='8rem' >  
+                            <Text fontSize='4xl'  color='#DE4B4B' as='b'>Iniciar Sesión</Text>
+                        </Box>
+                        
+                        <FormControl marginTop='2rem' marginLeft='2rem' >
+                            <InputGroup>
+                                <InputLeftElement >
+                                    <FaIdCard color='#DE4B4B'/>
+                                    
+                                </InputLeftElement>
+                                <Input  placeholder='DPI'width='25rem'size='md' type='text' bg='white' value={DPI} onChange={handleChangeDPI}/>
+                            </InputGroup>
+                            <span style={{color:'#DE4B4B'}} > {formValidation.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.DPI}</span>
+                        </FormControl>
 
-                    <FormControl marginBottom='4rem' marginTop='2rem'>
-                        <FormLabel  fontSize='1.2rem' color='#DE4B4B' >Password</FormLabel>
-                        <InputGroup>
-                             <Input size='md'  type={showPasswword ? 'text' : 'password'} bg='white' value={password} onChange={handleChangePassword}/>
-                             <InputRightElement>
-                                <Button color='#DE4B4B' h='1.75rem' marginRight='1rem' size='lg' onClick={handleClickShowPassowrd}>{showPasswword?<ViewIcon/>:<ViewOffIcon/>}</Button>
-                             </InputRightElement>
-                        </InputGroup>
-                        <span style={{color:'#DE4B4B'}} > {formValidation.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.password}</span>
-                    </FormControl>
+                        <FormControl marginBottom='4rem' marginTop='2rem' marginLeft='2rem'>
+                            <InputGroup>
+                                <InputLeftElement >
+                                    <LockIcon color='#DE4B4B' />
+                                </InputLeftElement>
+                                <Input   placeholder='Password'width='25rem'size='md'  type={showPasswword ? 'text' : 'password'} bg='white' value={password} onChange={handleChangePassword}/>
+                                <InputRightElement marginRight='11rem'>
+                                    <Button color='#DE4B4B' h='1.75rem' marginLeft='12.3rem' size='lg' onClick={handleClickShowPassowrd}>{showPasswword?<ViewIcon/>:<ViewOffIcon/>}</Button>
+                                </InputRightElement>
+                            </InputGroup>
+                            <span style={{color:'#DE4B4B'}} > {formValidation.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.password}</span>
+                        </FormControl>
 
-                    <Button  disabled={!isDisabled}  width='40rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
-                </form>
+                        <Button  disabled={!isDisabled}  marginLeft='1rem' width='25rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='1rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
+                    </form>
+                </Box>
             </Box>
-        </Box>
-  )
+    )
 }
