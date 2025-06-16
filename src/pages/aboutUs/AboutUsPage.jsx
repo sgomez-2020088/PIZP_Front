@@ -1,8 +1,11 @@
 import React from 'react'
 import Icon from '../../assets/PIZPIcon.png'
 import { Navbar } from '../../components/navbar'
+
+
 import { Box, Button, ButtonGroup, Image } from '@chakra-ui/react'
 import { useNavigate } from 'react-router'
+import { AboutUs } from '../../components/AboutUs/AboutUs'
 
 export const AboutUsPage = () => {
     let navigate = useNavigate()
@@ -28,7 +31,7 @@ export const AboutUsPage = () => {
                     {token?( <Button bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={handleClickLogOut}>Cerrar Sesión</Button>):('')}
                 </ButtonGroup>
             </Navbar>
-        <div>AboutUsPage</div>
+        <AboutUs/>
         </>
     )
 }
