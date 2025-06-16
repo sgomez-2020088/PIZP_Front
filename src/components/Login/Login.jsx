@@ -4,6 +4,7 @@ import { useLogin } from '../../shared/hooks/useLogin'
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Icon, Image, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
 import { LockIcon, ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
 import { FaBeer, FaIdCard } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 
 export const Login = () => {
 
@@ -17,6 +18,7 @@ export const Login = () => {
     })
 
     const {login,loading} = useLogin()
+
 
     const isDisabled = formValidation.DPI === '' && formValidation.password ===''
     const handleSubmit = (e)=>{
@@ -47,13 +49,13 @@ export const Login = () => {
                 <Box  >
                     <Image src={Fondo} alt='Fondo PIZP' size boxSize='30rem' borderLeftRadius='2.5rem'/>
                 </Box>
-                <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' border="2px solid #DE4B4B"  width='30rem' height='30rem' borderEndRadius='2.5rem'>
+                <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' border="2px solid #ff5757"  width='30rem' height='30rem' borderEndRadius='2.5rem'>
                     <form onSubmit={handleSubmit}>
-                        <Box  marginBottom='0.5rem' marginLeft='8rem' >  
+                        <Box  marginBottom='0.5rem' marginLeft='6rem' >  
                             <Text fontSize='4xl'  color='#DE4B4B' as='b'>Iniciar Sesión</Text>
                         </Box>
                         
-                        <FormControl marginTop='2rem' marginLeft='2rem' >
+                        <FormControl marginTop='2rem' marginLeft='1rem' >
                             <InputGroup>
                                 <InputLeftElement >
                                     <FaIdCard color='#DE4B4B'/>
@@ -64,14 +66,14 @@ export const Login = () => {
                             <span style={{color:'#DE4B4B'}} > {formValidation.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.DPI}</span>
                         </FormControl>
 
-                        <FormControl marginBottom='4rem' marginTop='2rem' marginLeft='2rem'>
+                        <FormControl marginBottom='4rem' marginTop='2rem' marginLeft='1rem'>
                             <InputGroup>
                                 <InputLeftElement >
                                     <LockIcon color='#DE4B4B' />
                                 </InputLeftElement>
                                 <Input   placeholder='Password'width='25rem'size='md'  type={showPasswword ? 'text' : 'password'} bg='white' value={password} onChange={handleChangePassword}/>
                                 <InputRightElement marginRight='11rem'>
-                                    <Button color='#DE4B4B' h='1.75rem' marginLeft='12.3rem' size='lg' onClick={handleClickShowPassowrd}>{showPasswword?<ViewIcon/>:<ViewOffIcon/>}</Button>
+                                    <Button color='#DE4B4B' h='1.75rem' marginLeft='18.5rem' size='lg' onClick={handleClickShowPassowrd}>{showPasswword?<ViewIcon/>:<ViewOffIcon/>}</Button>
                                 </InputRightElement>
                             </InputGroup>
                             <span style={{color:'#DE4B4B'}} > {formValidation.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{formValidation.password}</span>
@@ -79,6 +81,7 @@ export const Login = () => {
 
                         <Button  disabled={!isDisabled}  marginLeft='1rem' width='25rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='1rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
                     </form>
+                    <Text marginTop='1.5rem' color='#c54040'>No tienes cuenta?<Link to='/register'> Registrate aquí</Link></Text>
                 </Box>
             </Box>
     )
