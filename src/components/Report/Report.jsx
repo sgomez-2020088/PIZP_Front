@@ -56,7 +56,7 @@
 
     return (
         <>
-        <Box display='flex'>
+        <Box display='flex' flexWrap='wrap' justifyContent='space-between' marginTop='60px' gap='0.5rem'>
             <Box marginLeft='100px' marginTop='60px' border="2px solid #DE4B4B" borderRadius="1rem" >
                 <form onSubmit={handleSubmit}>
                     <Box  marginBottom='0.5rem' marginLeft='13rem' >  
@@ -90,10 +90,10 @@
                 alignItems="center" 
                 justifyContent="center" 
                 flexDirection="column" 
-                width="45rem" 
+                width="40rem" 
                 height="30rem" 
-                boxShadow="0px 10px 25px rgba(0, 0, 0, 0.50)"
-                marginTop='10px'
+                boxShadow="0px 5px 20px rgba(0, 0, 0, 0.50)"
+                flexWrap='wrap'marginTop='60px'
                 style={{ margin: '5rem auto' }} >
                     <Maps marker={marker} handleClickChangeMarker={handleClickChangeMarker}/>
             </Box>
