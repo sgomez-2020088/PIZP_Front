@@ -179,7 +179,7 @@ export const AboutUs = () => {
               <Heading fontSize="xl">PIZP</Heading>
             </HStack>
             <Text color="gray.400">
-              © 2024 PIZP - Plataforma Informativa de Zonas Peligrosas. Todos los derechos reservados.
+              © 2025 PIZP - Plataforma Informativa de Zonas Peligrosas. Todos los derechos reservados.
             </Text>
           </VStack>
         </Container>
