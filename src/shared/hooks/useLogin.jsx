@@ -32,8 +32,8 @@ export const useLogin = () => {
                     }
                 }
             return toast.error(
-                response?.err?.response?.data?.msg ||
-                response?.err?.data?.msg ||
+                response?.err?.response?.data?.message ||
+                response?.err?.data?.message ||
                 'Error general al intentar logearse. Intenta de nuevo'
             )
         }
