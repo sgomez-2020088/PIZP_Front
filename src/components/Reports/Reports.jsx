@@ -5,7 +5,9 @@ import { Maps } from '../Map/Maps';
 import { useGetReports } from '../../shared/hooks/useGetReports';
 import { BounceLoader } from 'react-spinners';
 import { AdvancedMarker, InfoWindow } from '@vis.gl/react-google-maps';
+import { motion } from 'framer-motion';
 
+const MotionBox = motion(Box)
 
 const InfoDelito = ({description, typeCrime})=>{
   return(
@@ -30,7 +32,9 @@ export const Reports = () => {
         
         if(isFetching){
           return(
-            <BounceLoader  color="#DE4B4B" size={100} speedMultiplier={1}/>
+            <Box display='flex' flexDirection='column' alignItems="center" justifyContent="center" marginTop='20%'>
+              <BounceLoader  color="#DE4B4B" size={100} speedMultiplier={1}/>
+            </Box>
           )
         }
 
@@ -38,12 +42,14 @@ export const Reports = () => {
 
   return (
     <>
-      <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" width="70rem" height="34rem"  style={{ margin: '5rem auto' }}>
-        <Maps>
+       <MotionBox display="flex" alignItems="center" justifyContent="center" flexDirection="column" marginTop="1rem" initial={{ opacity: 0, y: 50 }}  animate={{ opacity: 1, y: 0 }}  transition={{ duration: 0.6 }}  >
+      <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" width="100rem" height="45rem"  style={{ margin: '5rem auto' }}>
+        <Maps >
           {reports.map((report) => (<><AdvancedMarker key={report._id} position={{ lat: report.lat, lng: report.lng }} description={report.description}  onClick={() => { setOpen(open === report._id ? null : report._id); }}/>
             {open === report._id&&(<InfoWindow  position={{ lat: report.lat, lng: report.lng }} onCloseClick={()=>{setOpen(null)}}><InfoDelito description={report.description} typeCrime={report.typeCrime}/></InfoWindow>)} </>))}
         </Maps>
       </Box>
+      </MotionBox>
     </>
   )
 }
