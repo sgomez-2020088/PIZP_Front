@@ -3,6 +3,10 @@ import { useRegister } from '../../shared/hooks/useRegister';
 import { Box, Button, Checkbox, FormControl, FormErrorMessage, FormLabel, Icon, Input, InputGroup, InputLeftAddon, InputRightElement, Text } from '@chakra-ui/react';
 import { WarningIcon, WarningTwoIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { color, motion } from 'framer-motion';
+
+
+const MotionBox = motion(Box)
 
 export const Register = () => {
     const [name, setName] = useState('');
@@ -75,7 +79,7 @@ export const Register = () => {
     const handleChangePassword = (e)=>{
         let value = e.target.value
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$/
-        setValidationErrors({...validationErrors, password: regex.test(value)?'':'Ingrese una contraseña segura (Un mayuscula,minuscula, un numero y un caracter especial como minimo)'})
+        setValidationErrors({...validationErrors, password: regex.test(value)?'':'Ingrese una contraseña segura (Una mayuscula,minuscula, un numero, un caracter especial y 8 digitos como minimo)'})
         setPassword(value)
     }
 
@@ -90,56 +94,74 @@ export const Register = () => {
                     validationErrors.confirmPassword === '' 
  
     return (
-        <>
-            <Box  display='flex' alignItems='center' justifyContent='center' flexDirection='column'  > 
-                <form onSubmit={handleSubmit}>
-                                    
-                <FormControl  display="flex" flexDirection="column" alignItems="center" justifyContent="center"width="100%"textAlign="left" maxWidth="500px">
-    
-                    <Box  marginTop='5%' marginBottom='4%'>  
-                        <Text fontSize='3xl'  color='#DE4B4B' as='b'> REGISTRATE EN PIZP</Text>
-                    </Box>
-                     <Text marginBottom='1.5rem' color='#c54040'>Ya tienes cuenta?<Link to='/login'> Inicia Sesión</Link></Text>
-                   
-                    <Input  placeHolder='Nombre' id='1'size='md' value={name}   width='40rem' onChange={handleChangeName} mb='3'/>
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.name && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.name}</span>
+    <>
+      <MotionBox display="flex" alignItems="center" justifyContent="center" flexDirection="column" marginTop="1rem" initial={{ opacity: 0, y: 50 }}  animate={{ opacity: 1, y: 0 }}  transition={{ duration: 0.6 }}  >
+        <Box  display='flex' alignItems='center' justifyContent='center' flexDirection='column'  marginTop='1rem'> 
+                <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' border="2px solid #ff5757" width='45rem' borderRadius='2.5rem ' > 
+                    <form onSubmit={handleSubmit}>
+                                        
+                    <FormControl  display="flex" flexDirection="column" alignItems="center" justifyContent="center"width="100%"textAlign="left" maxWidth="500px">
+        
+                        <Box  marginTop='5%' marginBottom='4%'>  
+                            <Text fontSize='3xl'  color='#DE4B4B' as='b'> REGISTRATE EN PIZP</Text>
+                        </Box>
+                        <Text marginBottom='1.5rem' color='#c54040'>Ya tienes cuenta?<Link to='/login'> Inicia Sesión</Link></Text>
                     
-                   
-                    <Input  placeHolder='Apellidos' size='md' value={surname} width='40rem'onChange={handleChangeSurname}mb='3'/>
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.surname && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.surname}</span>
-                  
+                        <Input  placeHolder='Nombre' id='1'size='md' value={name}   width='40rem' onChange={handleChangeName} mb='3' 
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.name && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.name}</span>
+                        
                     
-                    <InputGroup  width='40rem'>
-                        <InputLeftAddon>+502</InputLeftAddon>
-                        <Input  placeHolder='Numero de telefono' size='md' value={phone}  onChange={handleChangePhone}mb='3'/>
-                    </InputGroup>
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.phone && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.phone}</span>
+                        <Input  placeHolder='Apellidos' size='md' value={surname} width='40rem'onChange={handleChangeSurname}mb='3'  
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.surname && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.surname}</span>
+                    
+                        
+                        <InputGroup  width='40rem'>
+                            <InputLeftAddon>+502</InputLeftAddon>
+                            <Input  placeHolder='Numero de telefono' size='md' value={phone}  onChange={handleChangePhone}mb='3'  
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        </InputGroup>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.phone && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.phone}</span>
 
+                        
+                        <Input placeHolder='DPI' size='md' value={DPI} width='40rem' onChange={handleChangeDPI}mb='3' 
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.DPI}</span>
                     
-                    <Input placeHolder='DPI' size='md' value={DPI} width='40rem' onChange={handleChangeDPI}mb='3' />
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.DPI}</span>
-                   
-                   
-                    <Input  placeHolder='Email' size='md' value={email}  width='40rem' onChange={handleChangeEmail}mb='3'/>
-                     <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.email && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.email}</span>
+                    
+                        <Input  placeHolder='Email' size='md' value={email}  width='40rem' onChange={handleChangeEmail}mb='3'
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.email && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.email}</span>
 
-                    
-                    <InputGroup width='40rem'>
-                        <Input placeHolder='Contraseña' type={show?'text':'password'} size='md'  width='130%'  value={password} onChange={handleChangePassword}mb='3'/>
-                    </InputGroup>
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.password}</span>
+                        
+                        <InputGroup width='40rem'>
+                            <Input placeHolder='Contraseña' type={show?'text':'password'} size='md'  width='130%'  value={password} onChange={handleChangePassword}mb='3' 
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        </InputGroup>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.password && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.password}</span>
 
-                    
-                    <InputGroup width='40rem'>
-                        <Input  placeHolder='Confirmar Contraseña' type={show?'text':'password'} size='md'  value={confirmPassword} onChange={handleChangeConfirmPassword} mb='3'/>
-                    </InputGroup>
-                    <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.confirmPassword && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.confirmPassword}</span>
-                    <br/>
-                    <Checkbox  colorScheme='red' color='#DE4B4B' onChange={handleClick} mb='3'>Ver contraseña</Checkbox>
-                    <Button disabled={!disabled} isLoading={loading?true:false}width='40rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='2.5rem' _active={{bg:'#c54040'}}type='submit'>Enviar</Button>
-                </FormControl>
-                </form>
+                        
+                        <InputGroup width='40rem'>
+                            <Input  placeHolder='Confirmar Contraseña' type={show?'text':'password'} size='md'  value={confirmPassword} onChange={handleChangeConfirmPassword} mb='3'
+                            _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
+                            _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
+                        </InputGroup>
+                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.confirmPassword && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.confirmPassword}</span>
+                        <br/>
+                        <Checkbox  colorScheme='red' color='#DE4B4B' onChange={handleClick} mb='3' paddingBottom='1rem'>Ver contraseña</Checkbox>
+                        <Button disabled={!disabled} isLoading={loading?true:false}width='40rem' bg='#DE4B4B'  marginBottom='2rem' color='white' _hover={{bg:'#ee5757'}} borderRadius='1rem' _active={{bg:'#c54040'}}type='submit'>Enviar</Button>
+                    </FormControl>
+                    </form>
+                </Box>
             </Box>
-        </>
-    )
-}
+      </MotionBox>
+    </>
+  );
+};
