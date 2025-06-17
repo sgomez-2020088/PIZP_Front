@@ -3,6 +3,6 @@ import React from 'react'
 
 export const Navbar = ({children}) => {
     return (
-        <Box display='flex' justifyContent="flex-end" padding="0.8% 5%" bg='#000000' w='100%' height='4rem'>{children}</Box>
+        <Box display='flex' justifyContent="flex-end" padding="0.8% 5%" bg='#12101C' w='100%' height='4rem'>{children}</Box>
     )
 }
