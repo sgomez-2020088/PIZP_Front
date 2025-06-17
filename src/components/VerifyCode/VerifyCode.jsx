@@ -54,7 +54,7 @@ export const VerifyCode = () => {
     
     const handleChangeCode = (value)=>{
         setVerificationCode(value.toUpperCase())
-        setFormValidation({...formValidation, verificationCode: value.length <6?'Ingrese el todo el codigo':''})
+        setFormValidation({...formValidation, verificationCode: value.length <6?'Ingrese todo el codigo':''})
     }
 
 
