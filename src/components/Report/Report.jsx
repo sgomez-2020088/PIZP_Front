@@ -77,7 +77,14 @@ export const Report = () => {
                 <Select placeholder="Seleccione un tipo" value={typeCrime} onChange={(e) => setTypeCrime(e.target.value)} size="md" focusBorderColor={borderColor}>
                   <option value="Asalto">Asalto</option>
                   <option value="Secuestro">Secuestro</option>
-                  <option value="Asesinato">Asesinato</option>
+                  <option value="Homicidio">Asesinato</option>
+                  <option value="Trafico">Trafico de drogas</option>
+                  <option value="Desaparición">Desaparición forzada</option>
+                  <option value="Extorsión">Extorsión</option>
+                  <option value="Acoso">Acoso</option>
+                  <option value="Violencia">Violencia doméstica</option>
+                  <option value="Amenazas">Amenazas</option>
+                  <option value="Violación">Violación</option>
                 </Select>
               </FormControl>
 
