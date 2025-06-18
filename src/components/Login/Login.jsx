@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Fondo from '../../assets/FondoPIZP.png'
 import { useLogin } from '../../shared/hooks/useLogin'
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Icon, Image, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
-import { LockIcon, ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
+import { ArrowBackIcon, LockIcon, ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
 import { FaBeer, FaIdCard } from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
-const MotionBox = motion(Box)
 
+const MotionBox = motion(Box)
 export const Login = () => {
 
     const [DPI, setDPI] = useState('')
@@ -92,7 +92,7 @@ export const Login = () => {
 
                             <Button  disabled={!isDisabled}  marginLeft='1rem' width='25rem' height='4rem' bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} borderRadius='1rem' _active={{bg:'#c54040'}}type='submit'>Iniciar Sesión</Button>
                         </form>
-                        <Text marginTop='1.5rem' color='#c54040'>No tienes cuenta?<Link to='/register'> Registrate aquí</Link></Text>
+                        <Text marginTop='1.5rem' color='#c54040'>No tienes cuenta?<Link to='/register'> Registrate aquí<ArrowBackIcon mb='0.2rem' ml='0.1rem' /></Link></Text>
                     </Box>
                 </Box>
             </MotionBox>
