@@ -1,8 +1,10 @@
 import React from 'react'
 import { addReportRequest } from '../../services/api'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 export const useAddReport = () => {
+    const navigate = useNavigate()
 
     const addReport = async(typeCrime, address,lat,lng, description,user)=>{
         
@@ -23,8 +25,7 @@ export const useAddReport = () => {
                 'Error al crear reporte. Intente mas tarde'
             )
         }
-
-       
+        navigate('/reports')
         return toast.success('Reporte creado',{
                 style: {
                     border: '1px solid #DE4B4B',
