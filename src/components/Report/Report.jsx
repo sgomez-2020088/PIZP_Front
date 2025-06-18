@@ -28,12 +28,25 @@ export const Report = () => {
   const [lng, setLng] = useState(null);
   const [address, setAddress] = useState('');
 
+  const [formValidation, setFormValidation] = useState({
+    typeCrime: undefined,
+    description:undefined,
+    marker: undefined
+
+  })
+
   const { addReport } = useAddReport();
 
+
+  const disabled = formValidation.typeCrime === '' && formValidation.description === '' && formValidation.marker === ''
+
+  
   const handleClickChangeMarker = (e) => {
+    const value = e.detail.latLng
     setMarkerPosition(e.detail.latLng);
     setLat(e.detail.latLng.lat);
     setLng(e.detail.latLng.lng);
+    setFormValidation({...formValidation, marker: value.length === 0?'Ingrese la dirección':''})
   };
 
   useEffect(() => {
@@ -52,6 +65,28 @@ export const Report = () => {
     e.preventDefault();
     addReport(typeCrime, address, lat, lng, description, user);
   };
+
+
+
+  const handleChanegTypeCrime = (e)=>{
+      const value = e.target.value
+      setFormValidation({...formValidation, typeCrime: value.length === 0?'Ingrese el tipo de delito':''})
+      setTypeCrime(value)
+  }
+
+
+  const handleChanegDescription = (e)=>{
+      const value = e.target.value
+      setFormValidation({...formValidation, description: value.length === 0?'Ingrese las descripción':''})
+      setDescription(value)
+  }
+
+
+
+  const handleChanegAddress = (e)=>{
+      const value = e.target.value
+      setAddress(value)
+  }
 
   const formBg = useColorModeValue('white', 'gray.700');
   const borderColor = useColorModeValue('red.400', 'red.600');
@@ -74,7 +109,7 @@ export const Report = () => {
                 <FormLabel fontWeight="semibold" fontSize="md">
                   Tipo de delito
                 </FormLabel>
-                <Select placeholder="Seleccione un tipo" value={typeCrime} onChange={(e) => setTypeCrime(e.target.value)} size="md" focusBorderColor={borderColor}>
+                <Select placeholder="Seleccione un tipo" value={typeCrime} onChange={handleChanegTypeCrime} size="md" focusBorderColor={borderColor}>
                   <option value="Asalto">Asalto</option>
                   <option value="Secuestro">Secuestro</option>
                   <option value="Homicidio">Asesinato</option>
@@ -92,17 +127,17 @@ export const Report = () => {
                 <FormLabel fontWeight="semibold" fontSize="md">
                   Dirección
                 </FormLabel>
-                <Input value={address} disabled={true} onChange={(e) => setAddress(e.target.value)} placeholder="Seleccione la dirección en el mapa o escriba aquí" size="md" focusBorderColor={borderColor}/>
+                <Input value={address} disabled={true} onChange={handleChanegAddress} placeholder="Seleccione la dirección en el mapa o escriba aquí" size="md" focusBorderColor={borderColor}/>
               </FormControl>
 
               <FormControl isRequired>
                 <FormLabel fontWeight="semibold" fontSize="md">
                   Descripción
                 </FormLabel>
-                <Textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Describe lo sucedido..." resize="vertical" minH="100px" focusBorderColor={borderColor}/>
+                <Textarea value={description} onChange={handleChanegDescription} placeholder="Describe lo sucedido..." resize="vertical" minH="100px" focusBorderColor={borderColor}/>
               </FormControl>
 
-              <Button type="submit" bg={buttonBg} color="white" size="lg" borderRadius="full" fontWeight="bold" _hover={{ bg: buttonHover }} _active={{ bg: buttonHover }} transition="background-color 0.2s">
+              <Button type="submit" bg={buttonBg} disabled={!disabled} color="white" size="lg" borderRadius="1rem" fontWeight="bold" _hover={{ bg: buttonHover }} _active={{ bg: buttonHover }} transition="background-color 0.2s">
                 Enviar
               </Button>
             </VStack>
