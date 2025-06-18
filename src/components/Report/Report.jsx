@@ -78,11 +78,11 @@ export const Report = () => {
                   <option value="Asalto">Asalto</option>
                   <option value="Secuestro">Secuestro</option>
                   <option value="Homicidio">Asesinato</option>
-                  <option value="Trafico">Trafico de drogas</option>
-                  <option value="Desaparición">Desaparición forzada</option>
+                  <option value="Trafico de drogas">Trafico de drogas</option>
+                  <option value="Desaparición forzada">Desaparición forzada</option>
                   <option value="Extorsión">Extorsión</option>
                   <option value="Acoso">Acoso</option>
-                  <option value="Violencia">Violencia doméstica</option>
+                  <option value="Violencia doméstica">Violencia doméstica</option>
                   <option value="Amenazas">Amenazas</option>
                   <option value="Violación">Violación</option>
                 </Select>
@@ -92,7 +92,7 @@ export const Report = () => {
                 <FormLabel fontWeight="semibold" fontSize="md">
                   Dirección
                 </FormLabel>
-                <Input value={address} onChange={(e) => setAddress(e.target.value)} placeholder="Seleccione la dirección en el mapa o escriba aquí" size="md" focusBorderColor={borderColor}/>
+                <Input value={address} disabled={true} onChange={(e) => setAddress(e.target.value)} placeholder="Seleccione la dirección en el mapa o escriba aquí" size="md" focusBorderColor={borderColor}/>
               </FormControl>
 
               <FormControl isRequired>
