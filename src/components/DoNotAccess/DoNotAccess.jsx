@@ -78,11 +78,6 @@ export const DoNotAccess = () =>{
 
               </motion.div>
 
-              <motion.div style={{ width: "100%" }} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>
-                <Button size="lg" w="full" variant="outline" colorScheme="red" leftIcon={<Icon as={FiArrowLeft} />}  _hover={{ bg: "brand.50", transform: "translateY(-1px)", }} transition="all 0.2s">
-                  Regresar
-                </Button>
-              </motion.div>
             </VStack>
 
             <motion.div style={{ width: "100%" }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
