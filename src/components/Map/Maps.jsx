@@ -21,8 +21,8 @@ export const Maps = ({ marker, handleClickChangeMarker, id, children }) => {
 
 
   return (
-    <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
-      <Map defaultCenter={position} defaultZoom={12} maxZoom={21} minZoom={8} mapId={import.meta.env.VITE_ID_MAP} onClick={handleClickChangeMarker}>
+    <APIProvider apiKey='AIzaSyAhoC1Gjnmo2AYoJ8gFN5u_Lwnvumbida8'>
+      <Map defaultCenter={position} defaultZoom={12} maxZoom={21} minZoom={8} mapId='d83b2bfcb134e57b5d056f3b' onClick={handleClickChangeMarker}>
         {children}
 
         {marker && (
