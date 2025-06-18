@@ -150,8 +150,8 @@ export const Register = () => {
                                         <Input placeHolder='DPI' size='md' value={DPI} width='20rem' onChange={handleChangeDPI}mb='3' 
                                             _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                             _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
-                                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.DPI}</span>
                                     </InputGroup>
+                                        <span style={{color:'#DE4B4B', marginBottom:'1rem'}} > {validationErrors.DPI && <WarningTwoIcon style={{ marginRight: '6px' }} />}{validationErrors.DPI}</span>
                                 </Box>
                             </Box>
 
