@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../../components/navbar'
+
 
 
 import { Box, Button, ButtonGroup, Image } from '@chakra-ui/react'
