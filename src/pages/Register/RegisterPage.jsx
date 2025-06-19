@@ -6,10 +6,9 @@ import { Box, Button, ButtonGroup, Image } from '@chakra-ui/react'
 import { useNavigate } from 'react-router'
 
 export const RegisterPage = () => {
-    const navigate = useNavigate()
+
     return (
         <>
-         
             <Register/>
         </>
     )

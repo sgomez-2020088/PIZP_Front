@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Fondo from '../../assets/FondoPIZP.png'
 import { useLogin } from '../../shared/hooks/useLogin'
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Icon, Image, Input, InputGroup, InputLeftElement, InputRightElement, Text } from '@chakra-ui/react'
 import { ArrowBackIcon, LockIcon, ViewIcon, ViewOffIcon, WarningTwoIcon } from '@chakra-ui/icons'
@@ -54,7 +53,7 @@ export const Login = () => {
             <MotionBox display="flex" alignItems="center" justifyContent="center" flexDirection="column" marginTop="1rem" initial={{ opacity: 0, y: 50 }}  animate={{ opacity: 1, y: 0 }}  transition={{ duration: 0.6 }}  >
                 <Box  display='flex' alignItems='center' justifyContent='center' flexDirection='row' width='100vw' height='90vh' >
                     <Box >
-                        <Image src={Fondo} alt='Fondo PIZP' size boxSize='30rem' borderLeftRadius='2.5rem'/>
+                        <Image src='https://res.cloudinary.com/ddkdbwjnw/image/upload/v1750300288/FondoPIZP_lsvkzz.png' alt='Fondo PIZP' size boxSize='30rem' borderLeftRadius='2.5rem'/>
                     </Box>
                     <Box display='flex' alignItems='center' justifyContent='center' flexDirection='column' border="2px solid #ff5757"  width='30rem' height='30rem' borderEndRadius='2.5rem'>
                         <form onSubmit={handleSubmit}>

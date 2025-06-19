@@ -36,7 +36,7 @@ export const AboutUs = () => {
           </VStack>
 
           <Box p={6} rounded="full" marginRight={12}>
-            <Image src={Logo || "/placeholder.svg"} boxSize="30rem" />
+            <Image src={'https://res.cloudinary.com/ddkdbwjnw/image/upload/v1750300373/PIZPLogo_i7rvho.png' || "/placeholder.svg"} boxSize="30rem" />
           </Box>
         </Flex>
       </Container>

@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from '../../assets/PIZPIcon.png'
 import { Navbar } from '../../components/navbar'
 
 
@@ -21,7 +20,7 @@ export const AboutUsPage = () => {
         <>
             <Navbar>
                 <Box display='flex' alignItems='center' justifyContent='flex-start' flexGrow={1} padding="0.5% 0% 0.5% 0%">
-                    <Image boxSize='3rem' src={Icon} alt='Icon PIZP'/>
+                    <Image boxSize='3rem' src='https://res.cloudinary.com/ddkdbwjnw/image/upload/v1750296800/PIZPIcon_wch4tj.png' alt='Icon PIZP'/>
                 </Box>
                 <ButtonGroup size='md' spacing='4'>
                     {token?(''):(<Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/login')}}>Iniciar Sesión</Button>)}
