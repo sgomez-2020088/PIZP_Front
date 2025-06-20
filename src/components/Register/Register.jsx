@@ -113,7 +113,7 @@ export const Register = () => {
                                 <Box display="flex" flexDirection="column" alignItems="flex-start">
                                     <InputGroup>
                                         <InputLeftElement><InfoIcon color='#DE4B4B'/></InputLeftElement>
-                                        <Input placeHolder='Nombre' size='md' value={name} width='20rem' onChange={handleChangeName} mb='3' mr='5'
+                                        <Input id='Nombre' placeHolder='Nombre' size='md' value={name} width='20rem' onChange={handleChangeName} mb='3' mr='5'
                                         _focus={{outline: 'none',borderColor: '#DE4B4B',boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}
                                         _hover={{outline: 'none',borderColor: '#DE4B4B',boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                                     </InputGroup>
@@ -123,7 +123,7 @@ export const Register = () => {
                                 <Box display="flex" flexDirection="column" alignItems="flex-start">
                                     <InputGroup>
                                         <InputLeftElement><InfoIcon color='#DE4B4B'/></InputLeftElement>
-                                        <Input placeHolder='Apellidos' size='md' value={surname} width='20rem' onChange={handleChangeSurname} mb='3'
+                                        <Input  id='Apellidos'placeHolder='Apellidos' size='md' value={surname} width='20rem' onChange={handleChangeSurname} mb='3'
                                         _focus={{outline: 'none',borderColor: '#DE4B4B',boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)',}}
                                         _hover={{outline: 'none',borderColor: '#DE4B4B',boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}
                                         />
@@ -137,7 +137,7 @@ export const Register = () => {
                                 <Box display="flex" flexDirection="column" alignItems="flex-start">
                                     <InputGroup  width='20rem' mr='5'>
                                         <InputLeftAddon>+502</InputLeftAddon>
-                                        <Input  placeHolder='Numero de telefono' size='md' value={phone}  onChange={handleChangePhone}mb='3'  
+                                        <Input  id='NTelefono' placeHolder='Numero de telefono' size='md' value={phone}  onChange={handleChangePhone}mb='3'  
                                         _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                         _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                                     </InputGroup>
@@ -147,7 +147,7 @@ export const Register = () => {
                                 <Box display="flex" flexDirection="column" alignItems="flex-start">
                                     <InputGroup>
                                     <InputLeftElement><FaIdCard color='#DE4B4B'/></InputLeftElement>
-                                        <Input placeHolder='DPI' size='md' value={DPI} width='20rem' onChange={handleChangeDPI}mb='3' 
+                                        <Input id='DPI' placeHolder='DPI' size='md' value={DPI} width='20rem' onChange={handleChangeDPI}mb='3' 
                                             _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                             _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                                     </InputGroup>
@@ -157,7 +157,7 @@ export const Register = () => {
 
                             <InputGroup width='41.3rem'>
                             <InputLeftElement> <EmailIcon color='#DE4B4B'/></InputLeftElement>
-                                <Input  placeHolder='Email' size='md' value={email}  onChange={handleChangeEmail}mb='3'
+                                <Input id='Email' placeHolder='Email' size='md' value={email}  onChange={handleChangeEmail}mb='3'
                                     _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                     _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                             </InputGroup>
@@ -166,7 +166,7 @@ export const Register = () => {
                             
                             <InputGroup width='41.3rem'>
                                 <InputLeftElement>{show?(<UnlockIcon color='#DE4B4B'/>):(<LockIcon color='#DE4B4B'/>)}</InputLeftElement>
-                                <Input placeHolder='Contraseña' type={show?'text':'password'} size='md'  width='130%'  value={password} onChange={handleChangePassword}mb='3' 
+                                <Input id='Contraseña' placeHolder='Contraseña' type={show?'text':'password'} size='md'  width='130%'  value={password} onChange={handleChangePassword}mb='3' 
                                 _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                 _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                             </InputGroup>
@@ -175,7 +175,7 @@ export const Register = () => {
                             
                             <InputGroup width='41.3rem'>
                             <InputLeftElement>{show?(<UnlockIcon color='#DE4B4B'/>):(<LockIcon color='#DE4B4B'/>)}</InputLeftElement>
-                                <Input  placeHolder='Confirmar Contraseña' type={show?'text':'password'} size='md'  value={confirmPassword} onChange={handleChangeConfirmPassword} mb='3'
+                                <Input  id='CPassword' placeHolder='Confirmar Contraseña' type={show?'text':'password'} size='md'  value={confirmPassword} onChange={handleChangeConfirmPassword} mb='3'
                                 _focus={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}} 
                                 _hover={{outline:'none', borderColor:  '#DE4B4B', boxShadow: '0 0 8px 2px rgba(222, 75, 75, 0.3)'}}/>
                             </InputGroup>

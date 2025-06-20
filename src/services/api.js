@@ -87,3 +87,14 @@ export const getReportsRequest = async()=>{
         }
     }
 }
+
+export const deleteReportRequesty = async(id)=>{
+    try {
+        return await apiClient.delete(`/v1/report/delete/${id}`)
+    } catch (err) {
+        return{
+            error:true,
+            err
+        }
+    }
+}

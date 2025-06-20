@@ -20,6 +20,7 @@ const MotionBox = motion(Box);
 
 export const Report = () => {
   const DPI = localStorage.getItem('DPI');
+  console.log('DPI',DPI)
   const [typeCrime, setTypeCrime] = useState('');
   const [description, setDescription] = useState('');
   const [user, setUser] = useState(DPI);
@@ -145,7 +146,7 @@ export const Report = () => {
         </Box>
 
         <Box flex="1" maxW="600px" height={{ base: '300px', md: '480px' }} borderRadius="1rem" boxShadow="xl" overflow="hidden">
-          <Maps marker={marker} handleClickChangeMarker={handleClickChangeMarker} />
+          <Maps position={ { lat: 14.60178208398095, lng: -90.54235243138898 }}marker={marker} handleClickChangeMarker={handleClickChangeMarker} />
         </Box>
       </Flex>
     </MotionBox>

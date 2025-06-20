@@ -6,11 +6,12 @@ import { useNavigate } from 'react-router-dom'
 import { removeItem } from 'framer-motion'
 import { Reports } from '../../components/Reports/Reports'
 import { DoNotAccess } from '../../components/DoNotAccess/DoNotAccess'
+import { ReportDetails } from '../../components/ReportDetails/ReportDetails'
 
 export const ReportsPage = () => {
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
-
+  const role = localStorage.getItem('Role')
 
   const handleClickLogOut = ()=>{
     navigate('/')
@@ -27,6 +28,7 @@ export const ReportsPage = () => {
               <Image boxSize='3rem' src='https://res.cloudinary.com/ddkdbwjnw/image/upload/v1750296800/PIZPIcon_wch4tj.png' alt='Icon PIZP'/>
             </Box>
             <ButtonGroup size='md' spacing='4'>
+              {role === 'ADMIN'?(<Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/detailsReports')}}>Detalles</Button>):('')}
               <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/')}}>Home</Button>
               <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={()=>{navigate('/report')}}>Reportar</Button>
               <Button  bg='#DE4B4B' color='white' _hover={{bg:'#ee5757'}} _active={{bg:'#c54040'}} onClick={handleClickLogOut}>Cerrar Sesión</Button>

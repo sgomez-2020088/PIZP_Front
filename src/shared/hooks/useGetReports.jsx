@@ -16,7 +16,7 @@ export const useGetReports = () => {
             )
         }
 
-        setReports(response.data.reports)
+        setReports(response.data.updatedReports)
     }
     return {
         reports,

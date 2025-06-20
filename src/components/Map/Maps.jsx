@@ -2,10 +2,9 @@ import { Text } from '@chakra-ui/react';
 import { AdvancedMarker, APIProvider, InfoWindow, Map } from '@vis.gl/react-google-maps';
 import React, { useState } from 'react';
 
-export const Maps = ({ marker, handleClickChangeMarker, id, children }) => {
+export const Maps = ({ marker, handleClickChangeMarker, id, children,position }) => {
   const [open, setOpen] = useState(false);
   const [address, setAddress] = useState('');  
-  const position = { lat: 14.60178208398095, lng: -90.54235243138898 };
 
   
   const handleClickBox = () => {
@@ -14,11 +13,6 @@ export const Maps = ({ marker, handleClickChangeMarker, id, children }) => {
       getAddress(marker);  
     }
   };
-
-  
-  
-
-
 
   return (
     <APIProvider apiKey='AIzaSyAhoC1Gjnmo2AYoJ8gFN5u_Lwnvumbida8'>

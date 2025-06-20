@@ -40,7 +40,9 @@ export const useLogin = () => {
         setError(false)
 
         localStorage.setItem('DPI',response.data.DPI)
+        localStorage.setItem('Role', response.data.Role)
 
+        
         localStorage.setItem('token',response.data.token)
         navigate('/reports')
         return toast.success('Inicio de sesión exitoso',{
