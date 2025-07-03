@@ -113,7 +113,7 @@ export const Report = () => {
                 <Select placeholder="Seleccione un tipo" value={typeCrime} onChange={handleChanegTypeCrime} size="md" focusBorderColor={borderColor}>
                   <option value="Asalto">Asalto</option>
                   <option value="Secuestro">Secuestro</option>
-                  <option value="Homicidio">Asesinato</option>
+                  <option value="Homicidio">Homicidio</option>
                   <option value="Trafico de drogas">Trafico de drogas</option>
                   <option value="Desaparición forzada">Desaparición forzada</option>
                   <option value="Extorsión">Extorsión</option>

@@ -7,6 +7,7 @@ import { BounceLoader } from 'react-spinners';
 import { AdvancedMarker, InfoWindow, Pin } from '@vis.gl/react-google-maps';
 import { motion } from 'framer-motion';
 import { InfoIcon } from '@chakra-ui/icons';
+import { FilterBar } from '../FilterBar/FilterBar';
 
 const MotionBox = motion(Box)
 
@@ -33,6 +34,7 @@ export const Reports = () => {
         const [marker, setMarkerPosition]=  useState(null)
 
         const [open, setOpen] = useState(null)
+        const [filter, setFilter] = useState(['all'])
 
 
         const {reports, isFetching,getReports}=useGetReports()
@@ -52,15 +54,24 @@ export const Reports = () => {
 
         console.log(reports)
 
+        const filteredPublications = filter.includes( 'all')
+        ? reports
+        : reports.filter(reports => filter.includes(reports.typeCrime))
+       
   return (
     <>
+        <Box  display="flex" alignItems="center" justifyContent="center" bg='#12101C' width='100%'>
+          <FilterBar filter={filter} setFilter={setFilter}/>
+        </Box>
        <MotionBox display="flex" alignItems="center" justifyContent="center" flexDirection="column"  initial={{ opacity: 0, y: 50 }}  animate={{ opacity: 1, y: 0 }}  transition={{ duration: 0.6 }}  >
         <Box display="flex" alignItems="center" justifyContent="center" flexDirection="column" width="99.5vw" height="92.5vh">
-        <Maps position={{ lat: 14.60178208398095, lng: -90.54235243138898 }}>
-          {reports.map((report) => (<><AdvancedMarker key={report._id} position={{ lat: report.lat, lng: report.lng }}  onClick={() => { setOpen(open === report._id ? null : report._id); }}>
+        <Maps position={{ lat: 14.60178208398095, lng: -90.54235243138898 }}  reports={filteredPublications}>
+          
+          {filteredPublications.map((report) => (<><AdvancedMarker key={report._id} position={{ lat: report.lat, lng: report.lng }}  onClick={() => { setOpen(open === report._id ? null : report._id); }}>
            <Pin background={report.severityColor} borderColor={report.severityColor}/>
           </AdvancedMarker>
             {open === report._id&&(<InfoWindow  position={{ lat: report.lat, lng: report.lng }} onCloseClick={()=>{setOpen(null)}}><InfoDelito  address={report.address} description={report.description} typeCrime={report.typeCrime}/></InfoWindow>)} </>))}
+            
         </Maps>
       </Box>
       </MotionBox>
